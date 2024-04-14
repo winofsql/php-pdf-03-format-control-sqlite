@@ -30,8 +30,8 @@ SELECT 社員マスタ.*,コード名称マスタ.名称 as 所属名
 QUERY;
 
 // クエリーの実行
-$result = $mysqli->query( $_POST["query"] );
-while ( $row = $result->fetch_array( MYSQLI_BOTH ) ) {
+$messages = $db->query($_POST["query"],PDO::FETCH_ASSOC);
+foreach ($messages as $row) {
 
     // 初回のみヘッダを印字する
     if(  $init  ) {
